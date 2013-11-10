@@ -30,7 +30,7 @@ Install via pip:
 
 .. code-block:: bash
 
-    $ pip install movesevent
+    $ pip install moves-event
 
 To enable `movesevent` in your project you need to add it to `INSTALLED_APPS` in your projects `settings.py` file:
 
