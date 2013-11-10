@@ -1,14 +1,17 @@
-==========
-movesevent
-==========
+===========
+moves-event
+===========
 
 This is a django application  for the `Moves App (http://www.moves-app.com/) <http://www.moves-app.com/>`_.
 
-.. image:: https://badge.fury.io/py/movesevent.png
-    :target: http://badge.fury.io/py/movesevent
+.. image:: https://badge.fury.io/py/moves-event.png
+    :target: http://badge.fury.io/py/moves-event
 
-.. image:: https://pypip.in/d/movesevent/badge.png
-        :target: https://crate.io/packages/movesevent/
+.. image:: https://pypip.in/d/moves-event/badge.png
+        :target: https://crate.io/packages/moves-event/
+
+.. image:: https://travis-ci.org/francxk/moves-event.png
+        :target: https://travis-ci.org/francxk/moves-event
 
         
 Requirements
@@ -57,12 +60,12 @@ The database synchronization is needed.
 Usage
 -----
 
-The app provide 2 models:
+The app provides 2 models to deal with Moves:
 
   * MoveApp: It is an MovesApplication, so must provide client_id and secret
   * MoveUser: represent a move user associated to an app
 
-.. figure:: https://github.com/francxk/movesevent/raw/master/doc/images/model.png
+.. figure:: https://github.com/francxk/moves-event/raw/master/doc/images/model.png
    :width: 1000  
   
 Consult the `API documentation <https://dev.moves-app.com/docs/api>`_ for the methods supported by moves.
