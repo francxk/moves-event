@@ -7,16 +7,19 @@ Created on 20 oct. 2013
 '''
 from setuptools import setup, find_packages
 
-current_version = '0.1'
+current_version = '0.1.0'
 component_name = 'moves-event'
 
 setup(name=component_name,
-      version='0.1',
+      version=current_version,
       description='Generate Django Moves Signal',
       author='Franck Roudet',
       author_email='anon@fr.fr',
-      url='https://github.com/francxk/' + component_name,
-      download_url='https://github.com/francxk/'+component_name+'/archive/v'+current_version + '.tar.gz',
+      url='https://github.com/francxk/' + component_name + '/',
+      #download_url='https://github.com/francxk/'+component_name+'/archive/v'+current_version + '.tar.gz',
+      download_url='https://github.com/francxk/'+component_name+'/archive/' + 
+      component_name+ '-' +current_version + '.tar.gz',
+      #download_url='http://github.com/francxk/'+component_name+'/tarball/master',
       packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
       package_data={'': ['LICENSE', 'NOTICE'],},
       install_requires=open('requirements.txt').read(),
