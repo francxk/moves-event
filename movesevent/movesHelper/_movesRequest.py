@@ -4,22 +4,66 @@ Created on 20 oct. 2013
 
 @author: franck
 '''
-from moves import MovesClient
+from moves import MovesClient, MovesAPIError
 import logging
+from django.core.urlresolvers import reverse
+from django.http.request import HttpRequest
+
 from movesevent import signal
 
 logger = logging.getLogger("mvevt")
 
 
+class MovesAPIAccessTokenMissing(MovesAPIError):
+    def __init__(self,*args, **kwargs):
+        super(MovesAPIAccessTokenMissing, self).__init__(*args)
+        self.webapp = kwargs.get('webapp', None)
+
+
+def access_token_protect(movesApi,request, user_id):
+    '''
+    If func if not ok, suppose that is a pb of access_token and give the MovesAPIAccessTokenMissing exception.
+    Can be use around moves API.
+    '''
+    def access_token_protector(func):
+        def wrapper(*args, **kwargs):
+            logger.debug(" tok protect %s", func.__name__)
+            try:
+                res = func(*args,**kwargs)
+            except MovesAPIError, e:
+                logger.debug("api error %s", e)
+                oauth_return_url = reverse('oauth_return', args=(user_id,))
+                if request:
+                    full_uri = HttpRequest.build_absolute_uri(request, oauth_return_url)
+                    auth_url = movesApi.build_oauth_url(full_uri)
+                else:
+                    auth_url = None
+                raise MovesAPIAccessTokenMissing(e, webapp=auth_url)
+            finally:
+                logger.debug(" tok protect endind %s", func.__name__)
+            return res
+        return wrapper
+    return access_token_protector
+
+
+def access_token_protector(func):
+    '''
+    access_tocken_protector decorator for class    
+    '''
+    def wrapper(self, *args, **kwargs):
+        return access_token_protect(self.movesApi, self.request, self.moves_user.id)(func)(self,*args,**kwargs)
+    return wrapper
+     
 class MovesEventDispatcher(object):
     """
     Send event for story line...
     Sender is the moves user
     """
-    def __init__(self, moves_user):
+    def __init__(self, moves_user, current_request = None):
         self.moves_user = moves_user
         self.movesApi= None
         self._initMovesApi()
+        self.request = current_request
 
 
     def _initMovesApi(self):
@@ -30,7 +74,9 @@ class MovesEventDispatcher(object):
             del self.movesApi
         self.movesApi = MovesClient(self.moves_user.app.client_id,
                                     self.moves_user.app.client_secret)
-    
+    from django.http.request import HttpRequest
+
+    @access_token_protector
     def moves_storyline(self, **kwargs):
         '''
         Get moves user story lines.
