@@ -8,15 +8,15 @@ Created on 20 oct. 2013
 from setuptools import setup, find_packages
 
 current_version = '0.1'
-component_name = 'moves_event'
+component_name = 'moves-event'
 
-setup(name='movesevent',
+setup(name=component_name,
       version='0.1',
       description='Generate Django Moves Signal',
       author='Franck Roudet',
       author_email='anon@fr.fr',
       url='https://github.com/francxk/' + component_name,
-      download_url='https://github.com/francxk/'+component_name+'/archive/V'+current_version + 'tar.gz',
+      download_url='https://github.com/francxk/'+component_name+'/archive/V'+current_version + '.tar.gz',
       packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
       package_data={'': ['LICENSE', 'NOTICE'],},
       install_requires=open('requirements.txt').read(),

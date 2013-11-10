@@ -66,7 +66,7 @@ The app provides 2 models to deal with Moves:
   * MoveUser: represent a move user associated to an app
 
 .. figure:: https://github.com/francxk/moves-event/raw/master/doc/images/model.png
-   :width: 1000  
+   :width: 600  
   
 Consult the `API documentation <https://dev.moves-app.com/docs/api>`_ for the methods supported by moves.
 
