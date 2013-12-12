@@ -131,9 +131,9 @@ INSTALLED_APPS = (
     
     # Extra tools
     'django_extensions',
-    # Grappelli
+    # Custom admin
     'grappelli',
-    #'grappelli.dashboard',
+    'bootstrap_admin',
     
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',

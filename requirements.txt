@@ -1,5 +1,5 @@
 Django>=1.5.4
 django-extensions>=1.2.5
-django-grappelli>=2.4.7
+bootstrap-admin
 moves
 requests>=2.0.0
