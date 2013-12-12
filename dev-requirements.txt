@@ -4,3 +4,4 @@ django-grappelli>=2.4.7
 requests>=2.0.0
 pygraphviz>=1.2
 docutils>=0.11
+moves
