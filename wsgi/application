@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import os
+import sys
 
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "movesevent.settings")
