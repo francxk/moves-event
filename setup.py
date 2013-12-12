@@ -27,7 +27,7 @@ setup(name=component_name,
       package_data={'': ['LICENSE', 'NOTICE'],},
       install_requires=open('%s/requirements.txt' % PROJECT_ROOT).read(),
 #      dependency_links=open('%s/dependency_links.txt' % PROJECT_ROOT).read().split("\n"),
-      dependency_links=["git+https://github.com/francxk/moves#egg=moves"],
+      dependency_links =["git+https://github.com/francxk/moves#egg=moves-0.1"],
       long_description=open('%s/README.rst' % PROJECT_ROOT).read(),
       classifiers=[
           'Development Status :: 4 - Beta',
