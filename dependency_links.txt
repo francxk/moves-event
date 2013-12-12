@@ -1,1 +1,1 @@
-https://github.com/francxk/moves#egg=moves
+https://github.com/francxk/moves/archive/master.tar.gz#egg=moves
