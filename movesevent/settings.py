@@ -4,9 +4,13 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+# a setting to determine whether we are running on OpenShift
+ON_OPENSHIFT = False
+if os.environ.has_key('OPENSHIFT_REPO_DIR'):
+    ON_OPENSHIFT = True
 
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
-DATA_DIR=os.getenv("DATA_DIR") or PROJECT_PATH
+DATA_DIR=os.getenv("DATA_DIR") or os.getenv('OPENSHIFT_DATA_DIR') or PROJECT_PATH
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),

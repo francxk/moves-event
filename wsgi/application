@@ -1,9 +1,10 @@
 #!/usr/bin/python
 import os
 
-sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR']))
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "movesevent.settings")
+
+sys.path.append('OPENSHIFT_REPO_DIR')
 
 virtenv = os.environ['OPENSHIFT_PYTHON_DIR'] + '/virtenv/'
 os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv, 'lib/python2.6/site-packages')
