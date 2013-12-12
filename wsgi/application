@@ -1,6 +1,8 @@
 #!/usr/bin/python
 import os
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "movesevent.settings")
+
 virtenv = os.environ['OPENSHIFT_PYTHON_DIR'] + '/virtenv/'
 os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv, 'lib/python2.6/site-packages')
 virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
