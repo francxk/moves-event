@@ -26,6 +26,7 @@ setup(name=component_name,
       packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
       package_data={'': ['LICENSE', 'NOTICE'],},
       install_requires=open('%s/requirements.txt' % PROJECT_ROOT).read(),
+      dependency_links=open('%s/dependency_links.txt' % PROJECT_ROOT).read(),
       long_description=open('%s/README.rst' % PROJECT_ROOT).read(),
       classifiers=[
           'Development Status :: 4 - Beta',

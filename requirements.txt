@@ -1,5 +1,4 @@
 Django>=1.5.4
 django-extensions>=1.2.5
 django-grappelli>=2.4.7
--e git+https://github.com/francxk/moves#egg=moves
 requests>=2.0.0
