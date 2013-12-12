@@ -4,6 +4,7 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 DATA_DIR=os.getenv("DATA_DIR") or PROJECT_PATH
 
