@@ -6,6 +6,9 @@ Created on 20 oct. 2013
 @author: franck roudet
 '''
 from setuptools import setup, find_packages
+import os
+
+PROJECT_ROOT = os.environ.get('OPENSHIFT_REPO_DIR', os.path.dirname(os.path.abspath(__file__)))
 
 current_version = '0.1.0'
 component_name = 'moves-event'
@@ -22,8 +25,8 @@ setup(name=component_name,
       #download_url='http://github.com/francxk/'+component_name+'/tarball/master',
       packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
       package_data={'': ['LICENSE', 'NOTICE'],},
-      install_requires=open('requirements.txt').read(),
-      long_description=open('README.rst').read(),
+      install_requires=open('%s/requirements.txt' % PROJECT_ROOT).read(),
+      long_description=open('%s/README.rst' % PROJECT_ROOT).read(),
       classifiers=[
           'Development Status :: 4 - Beta',
           'Intended Audience :: Developers',
@@ -34,6 +37,6 @@ setup(name=component_name,
           'Topic :: Software Development :: Libraries :: Python Modules',
       ],
       include_package_data=True,
-      license=open('LICENSE.txt').read(),
+      license=open('%s/LICENSE.txt' % PROJECT_ROOT).read(),
       zip_safe=False,
       )
